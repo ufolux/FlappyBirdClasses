@@ -17,6 +17,8 @@ bool BirdLayer::init(){
 void BirdLayer::setupView(){
     bd_sp = Sprite::createWithSpriteFrameName(STATIC_DATA_STRING("bird1"));
     bd_sp->setScale(SCALE_RATIO);
+    bd_sp->setPosition(VISIBLE_SIZE.width / 2, VISIBLE_SIZE.height / 2);
+    
     Vector<SpriteFrame*> spriteFrame;
     
     spriteFrame.pushBack(SpriteFrameCache::getInstance()->getSpriteFrameByName(STATIC_DATA_STRING("bird1")));
@@ -28,6 +30,7 @@ void BirdLayer::setupView(){
     
     bd_sp -> runAction(RepeatForever::create(animate));
 
+    bd_sp->setTag(7);
     this->addChild(bd_sp);
 }
 

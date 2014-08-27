@@ -6,9 +6,15 @@ USING_NS_CC;
 
 class FloorLayer: public BasicLayer{
 public:
-    CC_SYNTHESIZE(Sprite*, fr_sp, Fr_sp);
+
     
     virtual bool init();
     void setupView();
+    void scrollFloor(float t);
+    
     CREATE_FUNC(FloorLayer);
+    
+    CC_SYNTHESIZE(Sprite*, fr_sp1, Fr_sp1);
+    CC_SYNTHESIZE(Sprite*, fr_sp2, Fr_sp2);
+
 };

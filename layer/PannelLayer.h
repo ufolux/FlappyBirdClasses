@@ -7,6 +7,9 @@ USING_NS_CC;
 class PannelLayer: public BasicLayer{
 public:
     virtual bool init();
-        void setupView();
+    void setupView();
     CREATE_FUNC(PannelLayer);
+    
+
+
 };

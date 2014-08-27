@@ -10,7 +10,6 @@ public:
     CC_SYNTHESIZE(Sprite*, bd_sp, Bd_sp);
     
     virtual bool init();
-    void initPhysic();
     
     void setupView();
     

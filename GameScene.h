@@ -25,12 +25,10 @@ USING_NS_CC;
 class GameScene: public Scene{
     
 public:
-    CC_SYNTHESIZE(PhysicsBody*, bird_body, BirdBody);
-    CC_SYNTHESIZE(PhysicsBody*, floor_body, FloorBody);
-    CC_SYNTHESIZE(PhysicsBody*, pipe_body, PipeBody);
+
     
     bool init();
-    void createPhysics();
+
     void preloadTextrue();
     
     CREATE_FUNC(GameScene);

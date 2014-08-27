@@ -12,6 +12,8 @@ public:
     CREATE_FUNC(BackgroundLayer);
     virtual bool init();
     void setupView();
-
+    void scrollFloor(float t);
     
+    CC_SYNTHESIZE(Sprite*, bg_sp, Bg_sp);
+
 };
