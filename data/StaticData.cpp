@@ -31,7 +31,6 @@ double StaticData::getDoubleFromKey(string key){
 bool StaticData::getBoolFromKey(string key){
     return _dictionary->valueForKey(key)->boolValue();
 }
-
 Size StaticData::getSizeFromKey(string key){
     return SizeFromString(_dictionary->valueForKey(key)->getCString());
 }

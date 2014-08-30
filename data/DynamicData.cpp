@@ -16,13 +16,13 @@ void DynamicData::flush(){
 bool DynamicData::init(){
     //if beginner not exsit set beginner true
     UserDefault::getInstance()->getBoolForKey("beginner",true);
-    if (_isBeginner == true) {
+    if (m_isBeginner == true) {
         this->reset();
         this->flush();
         this->setIsBeginner(false);
     }else{
-        _isBeginner = UserDefault::getInstance()->getBoolForKey("beginner");
-        _count = UserDefault::getInstance()->getIntegerForKey("count");
+        m_isBeginner = UserDefault::getInstance()->getBoolForKey("beginner");
+        m_count = UserDefault::getInstance()->getIntegerForKey("count");
         //clean userdefault
         UserDefault::getInstance()->destroyInstance();
     }

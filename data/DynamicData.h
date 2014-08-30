@@ -6,8 +6,8 @@ using namespace std;
 
 class DynamicData: public Ref{
 public:
-    CC_SYNTHESIZE(bool, _isBeginner, IsBeginner);
-    CC_SYNTHESIZE(int, _count, Count);
+    CC_SYNTHESIZE(bool, m_isBeginner, IsBeginner);
+    CC_SYNTHESIZE(int, m_count, Count);
     
     static DynamicData* shareDynamicData();
     void purge();

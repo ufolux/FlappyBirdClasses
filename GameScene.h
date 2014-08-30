@@ -19,6 +19,8 @@
 #include "layer/PipeLayer.h"
 #include "layer/PannelLayer.h"
 #include "layer/TouchLayer.h"
+#include "layer/BasicLayer.h"
+
 
 USING_NS_CC;
 
@@ -28,13 +30,16 @@ public:
 
     
     bool init();
-
+    bool isCollission();
+    bool isPass();
+    void alterCount();
     void preloadTextrue();
-    
+    void update(float t);
     CREATE_FUNC(GameScene);
 private:
 	GameScene();
 	~GameScene();
+    
     
 protected:
 	BackgroundLayer* m_background_layer;
@@ -43,7 +48,6 @@ protected:
 	PipeLayer* m_pipe_layer;
 	PannelLayer* m_pannel_layer;
 	TouchLayer* m_touch_layer;
-    
     
 };
 

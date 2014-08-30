@@ -19,7 +19,7 @@ public:
     virtual bool init();
     void setupView();
     void scrollPipe(float t);
-    
+    Sprite* getPipeDisplay();
     
     CREATE_FUNC(PipeLayer);
     
@@ -31,6 +31,7 @@ public:
     
     CC_SYNTHESIZE(bool, is_pe_sp1_2_display, IsPeSp1_2Display);
     CC_SYNTHESIZE(bool, is_pe_sp3_4_display, IsPeSp3_4Display);
+    
 protected:
     
     

@@ -17,9 +17,6 @@ void FloorLayer::setupView(){
     fr_sp1 = Sprite::createWithSpriteFrameName(STATIC_DATA_STRING("floor"));
     fr_sp2 = Sprite::createWithSpriteFrameName(STATIC_DATA_STRING("floor"));
     
-    fr_sp1->setScale(SCALE_RATIO);
-    fr_sp2->setScale(SCALE_RATIO);
-    
     fr_sp1->setAnchorPoint(Point(0.f, 0.f));
     fr_sp2->setAnchorPoint(Point(0.f, 0.f));
     
@@ -35,7 +32,7 @@ void FloorLayer::setupView(){
     schedule(schedule_selector(FloorLayer::scrollFloor), STATIC_DATA_FLOAT("floorDelay"));
 }
 
-//卡马克卷轴
+//Carmack卷轴
 void FloorLayer::scrollFloor(float t){
     auto deltaX = STATIC_DATA_INT("speedX");
     fr_sp1->setPositionX(fr_sp1->getPositionX() - deltaX);

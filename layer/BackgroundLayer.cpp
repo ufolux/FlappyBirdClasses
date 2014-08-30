@@ -16,7 +16,6 @@ bool BackgroundLayer::init(){
 void BackgroundLayer::setupView(){
     
     bg_sp = Sprite::createWithSpriteFrameName(STATIC_DATA_STRING("bg"));
-    bg_sp->setScale(SCALE_RATIO);
     bg_sp->setPosition(VISIBLE_SIZE.width / 2, VISIBLE_SIZE.height / 2);
     
     this->addChild(bg_sp);

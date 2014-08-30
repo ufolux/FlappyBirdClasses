@@ -38,7 +38,6 @@ void PipeLayer::setupView(){
                 pe_obj->setAnchorPoint(Point(0.f, 1.0f));
             }
             pe_obj->setTag(i+9);
-            pe_obj->setScale( SCALE_RATIO );
             this->addChild(pe_obj);
             i++;
         }
@@ -48,6 +47,7 @@ void PipeLayer::setupView(){
     //set first positionX, Y
     pe_sp1 -> setPositionX(VISIBLE_SIZE.width+100);
     pe_sp2->setPositionX(VISIBLE_SIZE.width+100);//开始时在屏幕外
+    
     PipeY pipeY = randomPipeY();
     pe_sp1->setPositionY(pipeY.down);//总长度
     pe_sp2->setPositionY(pipeY.up);
@@ -71,7 +71,7 @@ void PipeLayer::setupView(){
     
 }
 
-//kamak scroll callback
+//Carmack scroll callback
 /**
  *将两个管子＋间隔 接起来
  *然后卡马克卷轴算法
@@ -134,7 +134,7 @@ PipeY PipeLayer::randomPipeY(){
     
     auto gap = 200;//空隙大小
     srand(time(NULL));
-    auto randomDownYRatio = ((rand() % 40) + 30) / 100.0 ;
+    auto randomDownYRatio = ((rand() % 60) + 30) / 100.0 ;
     auto randomUpYRation = 1 - randomDownYRatio;
     
     pipeY.down = randomDownYRatio*(VISIBLE_SIZE.height - gap);//总长度
@@ -142,5 +142,19 @@ PipeY PipeLayer::randomPipeY(){
     
     return pipeY;
     
+}
+
+Sprite*  PipeLayer::getPipeDisplay(){
+    
+    if (getIsPeSp1_2Display()) {
+        
+        return getPe_sp1();
+    }else if(getIsPeSp3_4Display()){
+
+        return getPe_sp3();
+    }else{
+        
+        return NULL;
+    }
 }
 
