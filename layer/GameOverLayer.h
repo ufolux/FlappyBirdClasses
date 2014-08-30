@@ -11,5 +11,7 @@ public:
     
     CREATE_FUNC(GameOverLayer);
     CC_SYNTHESIZE(Sprite*, score_sp, ScoreSp);
+    CC_SYNTHESIZE(Sprite*, title_sp, TitleSp);
+    CC_SYNTHESIZE(Sprite*, replay_sp, ReplaySp);
 
 };

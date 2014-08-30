@@ -20,7 +20,9 @@
 #include "layer/PannelLayer.h"
 #include "layer/TouchLayer.h"
 #include "layer/BasicLayer.h"
-
+#include "layer/StartLayer.h"
+#include "layer/GameOverLayer.h"
+#include "layer/ReadyLayer.h"
 
 USING_NS_CC;
 
@@ -48,6 +50,9 @@ protected:
 	PipeLayer* m_pipe_layer;
 	PannelLayer* m_pannel_layer;
 	TouchLayer* m_touch_layer;
+    StartLayer* m_start_layer;
+    GameOverLayer* m_game_over_layer;
+    ReadyLayer* m_ready_layer;
     
 };
 

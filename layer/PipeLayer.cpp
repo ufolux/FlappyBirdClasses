@@ -84,13 +84,13 @@ void PipeLayer::scrollPipe(float t){
     //标记是否显示
     /*
      */
-    if ((pe_sp1->getPositionX() + DIV < ORINGIN_SIZE.x||pe_sp1->getPositionX()> VISIBLE_SIZE.width)&&(pe_sp2->getPositionX() + DIV < ORINGIN_SIZE.x||pe_sp2->getPositionX()> VISIBLE_SIZE.width )) {
+    if ((pe_sp1->getPositionX() + 100 < ORINGIN_SIZE.x||pe_sp1->getPositionX()> VISIBLE_SIZE.width)&&(pe_sp2->getPositionX() + 100 < ORINGIN_SIZE.x||pe_sp2->getPositionX()> VISIBLE_SIZE.width )) {
         setIsPeSp1_2Display(false);
     }else{
         setIsPeSp1_2Display(true);
     }
     
-    if ((pe_sp3->getPositionX()+DIV< ORINGIN_SIZE.x||pe_sp3->getPositionX()> VISIBLE_SIZE.width)&&(pe_sp4->getPositionX()+DIV < ORINGIN_SIZE.x||pe_sp4->getPositionX()> VISIBLE_SIZE.width )) {
+    if ((pe_sp3->getPositionX()+100< ORINGIN_SIZE.x||pe_sp3->getPositionX()> VISIBLE_SIZE.width)&&(pe_sp4->getPositionX()+100 < ORINGIN_SIZE.x||pe_sp4->getPositionX()> VISIBLE_SIZE.width )) {
         setIsPeSp3_4Display(false);
     }else{
         setIsPeSp3_4Display(true);
@@ -132,7 +132,7 @@ void PipeLayer::scrollPipe(float t){
 PipeY PipeLayer::randomPipeY(){
     PipeY pipeY;
     
-    auto gap = 200;//空隙大小
+    auto gap = 180;//空隙大小
     srand(time(NULL));
     auto randomDownYRatio = ((rand() % 60) + 30) / 100.0 ;
     auto randomUpYRation = 1 - randomDownYRatio;

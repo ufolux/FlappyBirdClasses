@@ -29,6 +29,7 @@ bool GameScene::init(){
         m_bird_layer = BirdLayer::create();
         this->addChild(m_bird_layer, 3, 2);
         
+        
         m_floor_layer = FloorLayer::create();
         this->addChild(m_floor_layer, 3, 4);
         
@@ -36,9 +37,20 @@ bool GameScene::init(){
         m_pannel_layer = PannelLayer::create();
         this->addChild(m_pannel_layer, 4, 5);
         
+        m_game_over_layer = GameOverLayer::create();
+        this->addChild(m_game_over_layer,4);
+        
         m_touch_layer = TouchLayer::create();
         this->addChild(m_touch_layer, 5, 6);
         
+        
+        m_start_layer = StartLayer::create();
+        this->addChild(m_start_layer, 6);
+        
+        m_ready_layer = ReadyLayer::create();
+        this->cocos2d::Node::addChild(m_ready_layer,5);
+        
+//
         //schedule
         this->scheduleUpdate();
         
@@ -104,7 +116,7 @@ bool GameScene::isPass(){
     if (pipe==NULL) {
         return sRet;
     }
-    auto pipeX = pipe->getPositionX() + pipe->getContentSize().width;
+    auto pipeX = pipe->getPositionX() + 100;
     if (std::abs(birdX-pipeX) < 1.f) {
         sRet = true;
     }

@@ -20,6 +20,9 @@ public:
     virtual bool init();
     void setupView();
     
+    CC_SYNTHESIZE(Sprite*, title_sp, TitleSp);
+    CC_SYNTHESIZE(Sprite*, play_sp, PlaySp);
+    
 };
 
 #endif /* defined(__fishGame__StartLayer__) */
