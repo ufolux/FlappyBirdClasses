@@ -11,6 +11,7 @@
 
 #include "cocos2d.h"
 #include "BasicLayer.h"
+#include "PipeLayer.h"
 
 USING_NS_CC;
 
@@ -19,9 +20,9 @@ public:
     CREATE_FUNC(ReadyLayer);
     virtual bool init();
     void setupView();
-    
+    void setBegin(Ref* pSender);
     CC_SYNTHESIZE(Sprite*, title_sp, TitleSp);
-    CC_SYNTHESIZE(Sprite*, tap_sp, PlaySp);
+
     
 };
 

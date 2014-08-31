@@ -8,7 +8,9 @@
 #include "GameScene.h"
 
 GameScene::GameScene(){}
-GameScene::~GameScene(){}
+GameScene::~GameScene(){
+    this->unscheduleUpdate();
+}
 
 bool GameScene::init(){
     bool sRect = false;
@@ -25,6 +27,9 @@ bool GameScene::init(){
         
         m_pipe_layer = PipeLayer::create();
         this->addChild(m_pipe_layer, 3, 3);
+        m_pipe_layer->setVisible(false);
+        m_pipe_layer->pause();
+        
         
         m_bird_layer = BirdLayer::create();
         this->addChild(m_bird_layer, 3, 2);
@@ -38,19 +43,20 @@ bool GameScene::init(){
         this->addChild(m_pannel_layer, 4, 5);
         
         m_game_over_layer = GameOverLayer::create();
-        this->addChild(m_game_over_layer,4);
+        this->addChild(m_game_over_layer,1);
+        m_game_over_layer->setVisible(false);
         
         m_touch_layer = TouchLayer::create();
         this->addChild(m_touch_layer, 5, 6);
         
         
         m_start_layer = StartLayer::create();
-        this->addChild(m_start_layer, 6);
+        this->addChild(m_start_layer, 10, 7);
         
         m_ready_layer = ReadyLayer::create();
-        this->cocos2d::Node::addChild(m_ready_layer,5);
-        
-//
+        this->addChild(m_ready_layer, 10, 8);
+        m_ready_layer->setVisible(false);
+        //
         //schedule
         this->scheduleUpdate();
         
@@ -94,37 +100,57 @@ bool GameScene::isCollission(){
 }
 
 void GameScene::update(float dt){
-    auto bd_sp = m_bird_layer->getBd_sp();
-    if(isCollission()){
-        Director::getInstance()->pause();
-        bd_sp->setSpriteFrame(STATIC_DATA_STRING("birdDead"));
+    
+    if (DynamicData::shareDynamicData()->getIsBegin()) {
+        auto bd_sp = m_bird_layer->getBd_sp();
+        if(isCollission()){
+            
+            Director::getInstance()->pause();
+            bd_sp->setSpriteFrame(STATIC_DATA_STRING("birdDead"));
+            DynamicData::shareDynamicData()->setIsBegin(false);
+            m_game_over_layer->setVisible(true);
+            m_game_over_layer->setZOrder(12);
+        }
+        alterCount();
     }
-    alterCount();
+    
+    
     
     
 }
 
 
+
+
 bool GameScene::isPass(){
+    
     bool sRet = false;
-    
-    /*todo*/
-    Sprite* pipe = m_pipe_layer->getPipeDisplay();
-    auto bird = m_bird_layer->getBd_sp();
-    auto birdX = bird->getPositionX() - bird->getContentSize().width/2;
-    
-    if (pipe==NULL) {
-        return sRet;
+    if (DynamicData::shareDynamicData()->getIsBegin()) {
+        /*todo*/
+        Sprite* pipe = m_pipe_layer->getPipeDisplay();
+        auto bird = m_bird_layer->getBd_sp();
+        
+        auto birdX = bird->getPositionX() - bird->getContentSize().width/2;
+        
+        if (pipe==NULL) {
+            return sRet;
+        }
+        auto pipeX = pipe->getPositionX() + 100;
+        if (std::abs(birdX-pipeX) < 1.f) {
+            sRet = true;
+        }
+        
     }
-    auto pipeX = pipe->getPositionX() + 100;
-    if (std::abs(birdX-pipeX) < 1.f) {
-        sRet = true;
-    }
+    
+    
     return sRet;
 }
 
 void GameScene::alterCount(){
     if(isPass()){
-        DynamicData::shareDynamicData()->setCount( DynamicData::shareDynamicData()->getCount()+1);
+        DynamicData::shareDynamicData()->alterCount(1);
     }
 }
+
+
+

@@ -25,6 +25,7 @@ void TouchLayer::touchEventHandler(){
     m_touchListener->setSwallowTouches(true);
     
     m_touchListener->onTouchBegan = [&](Touch* touch, Event* event){
+
         
         auto birdLayer = static_cast<BirdLayer*>(this->getParent()->getChildByTag(2));
         birdLayer->addHeight();

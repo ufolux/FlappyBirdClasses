@@ -4,6 +4,8 @@
 #include "cocos2d.h"
 #include "BasicLayer.h"
 #include "math.h"
+#include "DynamicData.h"
+
 USING_NS_CC;
 
 class BirdLayer: public BasicLayer{
@@ -15,16 +17,15 @@ public:
     }PlayerState;
     
     CC_SYNTHESIZE(Sprite*, bd_sp, Bd_sp);
-    CC_SYNTHESIZE(bool, is_tap, IsTap);
-    CC_SYNTHESIZE(bool, is_val_zero, IsValZero);
+
     
     virtual bool init();
     
     void setupView();
     
     void addHeight();
+    void reset();
     void update(float t);
-    //void tapGravitySim(float t);
     CREATE_FUNC(BirdLayer);
     
     

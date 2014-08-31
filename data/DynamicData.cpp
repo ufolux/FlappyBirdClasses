@@ -5,28 +5,23 @@
 static DynamicData* ms_shareDynamicData = NULL;
 
 void DynamicData::flush(){
-    UserDefault::getInstance()->setBoolForKey("beginner", this->getIsBeginner());
-    UserDefault::getInstance()->setIntegerForKey("count", this->getCount());
+    
+    UserDefault::getInstance()->setIntegerForKey("maxCount", this->getMaxCount());
     //save file
     UserDefault::getInstance()->flush();
-    //clean userdefault 
+    //clean userdefault
     UserDefault::getInstance()->destroyInstance();
 }
 
 bool DynamicData::init(){
     //if beginner not exsit set beginner true
-    UserDefault::getInstance()->getBoolForKey("beginner",true);
-    if (m_isBeginner == true) {
-        this->reset();
-        this->flush();
-        this->setIsBeginner(false);
-    }else{
-        m_isBeginner = UserDefault::getInstance()->getBoolForKey("beginner");
-        m_count = UserDefault::getInstance()->getIntegerForKey("count");
-        //clean userdefault
-        UserDefault::getInstance()->destroyInstance();
-    }
-
+    
+    setIsBegin(false);
+    m_max_count = UserDefault::getInstance()->getIntegerForKey("maxCount");
+    //clean userdefault
+    UserDefault::getInstance()->destroyInstance();
+    
+    
     return true;
 }
 
@@ -41,20 +36,16 @@ DynamicData* DynamicData::shareDynamicData(){
 }
 
 void DynamicData::alterCount(int delta){
-
+    
     int count = this->getCount();
     this->setCount(count+delta);
+    if (count>getCount()) {
+        setMaxCount(count);
+    }
     //don't need flush here
 }
 
-void DynamicData::reset(){
-    int defalutCount = STATIC_DATA_INT("default_count");
 
-    this->setIsBeginner(true);
-    this->setCount(defalutCount);
-    //save after alter
-    this->flush();
-}
 
 void DynamicData::purge(){
     CC_SAFE_RELEASE_NULL(ms_shareDynamicData);

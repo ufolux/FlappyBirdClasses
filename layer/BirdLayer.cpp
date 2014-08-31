@@ -45,21 +45,33 @@ void BirdLayer::setupView(){
  *
  */
 void BirdLayer::addHeight(){
-    float deltaHeight = STATIC_DATA_FLOAT("tapDeltaHeight");
-    bd_sp->setPositionY(bd_sp->getPositionY()+deltaHeight);
-    Time1 = 0.f;
-    Time2 = 0.f;
-    ms_dropHeight = 0.f;
+    if (DynamicData::shareDynamicData()->getIsBegin()) {
+        float deltaHeight = STATIC_DATA_FLOAT("tapDeltaHeight");
+        bd_sp->setPositionY(bd_sp->getPositionY()+deltaHeight);
+        Time1 = 0.f;
+        Time2 = 0.f;
+        ms_dropHeight = 0.f;
+    }
+    
 }
 //simulate move
 void BirdLayer::update(float t){
+    if (DynamicData::shareDynamicData()->getIsBegin()) {
+
+        Time2 += STATIC_DATA_FLOAT("floorDelay");
+        Time1 = Time2 - STATIC_DATA_FLOAT("floorDelay");
+        float squreDelta = (Time2 + Time1)*(Time2 - Time1);
+        float deltaHeightPerUnit = 1/2.f * WORLD_GRAVITY*(squreDelta);
+        ms_dropHeight += deltaHeightPerUnit;
+        
+        bd_sp->setPositionY(bd_sp->getPositionY() + ms_dropHeight );
+    }
     
-    Time2 += STATIC_DATA_FLOAT("floorDelay");
-    Time1 = Time2 - STATIC_DATA_FLOAT("floorDelay");
-    float squreDelta = (Time2 + Time1)*(Time2 - Time1);
-    float deltaHeightPerUnit = 1/2.f * WORLD_GRAVITY*(squreDelta);
-    ms_dropHeight += deltaHeightPerUnit;
     
-    bd_sp->setPositionY(bd_sp->getPositionY() + ms_dropHeight );
-    
+}
+
+void BirdLayer::reset(){
+    ms_dropHeight = 0.f;
+    Time1 = 0.f;
+    Time2 = 0.f;
 }

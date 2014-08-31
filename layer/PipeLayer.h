@@ -20,7 +20,7 @@ public:
     void setupView();
     void scrollPipe(float t);
     Sprite* getPipeDisplay();
-    
+    void reset();
     CREATE_FUNC(PipeLayer);
     
     
