@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <dict>
+        
+        
+        <key>0</key>
+        <string>0.png</string>
+        <key>1</key>
+        <string>1.png</string>
+        <key>2</key>
+        <string>2.png</string>
+        <key>3</key>
+        <string>3.png</string>
+        <key>4</key>
+        <string>4.png</string>
+        <key>5</key>
+        <string>5.png</string>
+        <key>6</key>
+        <string>6.png</string>
+        <key>7</key>
+        <string>7.png</string>
+        <key>8</key>
+        <string>8.png</string>
+        <key>9</key>
+        <string>9.png</string>
+        
+        
+        
+        
+        <key>0b</key>
+        <string>0b.png</string>
+        <key>1b</key>
+        <string>1b.png</string>
+        <key>2b</key>
+        <string>2b.png</string>
+        <key>3b</key>
+        <string>3b.png</string>
+        <key>4b</key>
+        <string>4b.png</string>
+        <key>5b</key>
+        <string>5b.png</string>
+        <key>6b</key>
+        <string>6b.png</string>
+        <key>7b</key>
+        <string>7b.png</string>
+        <key>8b</key>
+        <string>8b.png</string>
+        <key>9b</key>
+        <string>9b.png</string>
+        
+        <key>tapDeltaHeight</key>
+        <string>80</string>
+        <key>gravity</key>
+        <string>-280</string>
+        <key>floorDelay</key>
+        <string>0.03</string>
+        <key>speedX</key>
+        <string>10</string>
+        <key>bg_music</key>
+        <string>bg_muisc.mp3</string>
+        <key>sound_tap</key>
+        <string>sound_tap.mp3</string>
+        <key>sound_collide</key>
+        <string>sound_collide.mp3</string>
+        <key>floor</key>
+        <string>back.png</string>
+        <key>bg</key>
+        <string>bg.jpg</string>
+        <key>bird1</key>
+        <string>bird1.png</string>
+        <key>bird2</key>
+        <string>bird2.png</string>
+        <key>bird3</key>
+        <string>bird3.png</string>
+        <key>birdDead</key>
+        <string>birdDead.png</string>
+        <key>gameover</key>
+        <string>gameover.png</string>
+        <key>main</key>
+        <string>main.png</string>
+        <key>pipe</key>
+        <string>pipe.png</string>
+        <key>rank</key>
+        <string>rank.png</string>
+        <key>rate</key>
+        <string>rate.png</string>
+        <key>ready</key>
+        <string>ready.png</string>
+        <key>score</key>
+        <string>score.png</string>
+        <key>start</key>
+        <string>start.png</string>
+        <key>tap</key>
+        <string>tap.png</string>
+        <key>flappy_textrue</key>
+        <string>FlappySprite.png</string>
+        <key>flappy_plist</key>
+        <string>flappy_sprite.plist</string>
+        <key>defalut_count</key>
+        <string>0</string>
+    </dict>
+</plist>
