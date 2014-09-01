@@ -45,7 +45,8 @@ void BirdLayer::setupView(){
  *
  */
 void BirdLayer::addHeight(){
-    if (DynamicData::shareDynamicData()->getIsBegin()) {
+    
+    if (DynamicData::shareDynamicData()->getIsBegin()&&!DynamicData::shareDynamicData()->getIsAtTop()) {
         float deltaHeight = STATIC_DATA_FLOAT("tapDeltaHeight");
         bd_sp->setPositionY(bd_sp->getPositionY()+deltaHeight);
         Time1 = 0.f;

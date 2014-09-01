@@ -11,6 +11,8 @@ public:
     CC_SYNTHESIZE(bool, m_isBegin, IsBegin);
     CC_SYNTHESIZE(int, m_max_count, MaxCount);
     CC_SYNTHESIZE(int, m_count, Count);
+    
+    CC_SYNTHESIZE(bool, m_isAtTop, IsAtTop);
     static DynamicData* shareDynamicData();
     void purge();
     //write data to file
@@ -21,4 +23,5 @@ public:
     void alterCount(int delta);
 private:
     bool init();
+    
 };

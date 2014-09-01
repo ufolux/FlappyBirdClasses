@@ -47,8 +47,8 @@ void PipeLayer::setupView(){
     
     i = 0;
     //set first positionX, Y
-    pe_sp1 -> setPositionX(VISIBLE_SIZE.width+1500);
-    pe_sp2->setPositionX(VISIBLE_SIZE.width+1500);//开始时在屏幕外
+    pe_sp1 -> setPositionX(VISIBLE_SIZE.width+800);
+    pe_sp2->setPositionX(VISIBLE_SIZE.width+800);//开始时在屏幕外
     
     PipeY pipeY = randomPipeY();
     pe_sp1->setPositionY(pipeY.down);//总长度

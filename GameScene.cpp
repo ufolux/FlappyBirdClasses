@@ -88,7 +88,13 @@ bool GameScene::isCollission(){
     auto pipe2Rect = m_pipe_layer->getPe_sp2()->getBoundingBox();
     auto pipe3Rect = m_pipe_layer->getPe_sp3()->getBoundingBox();
     auto pipe4Rect = m_pipe_layer->getPe_sp4()->getBoundingBox();
-    
+    //is beyond top
+    if (m_bird_layer->getBd_sp()->getPositionY()+30 > VISIBLE_SIZE.height) {
+        DynamicData::shareDynamicData()->setIsAtTop(true);
+    }else{
+        DynamicData::shareDynamicData()->setIsAtTop(false);
+    }
+    //is collision
     if (birdRect.intersectsRect(floor1Rect)||birdRect.intersectsRect(floor2Rect)) {
         return true;
     }else
@@ -97,6 +103,8 @@ bool GameScene::isCollission(){
         }else{
             return false;
         }
+    
+    
 }
 
 void GameScene::update(float dt){
@@ -113,10 +121,7 @@ void GameScene::update(float dt){
         }
         alterCount();
     }
-    
-    
-    
-    
+
 }
 
 
@@ -151,6 +156,9 @@ void GameScene::alterCount(){
         DynamicData::shareDynamicData()->alterCount(1);
     }
 }
+
+
+
 
 
 

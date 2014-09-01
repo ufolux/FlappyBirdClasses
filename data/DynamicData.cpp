@@ -17,6 +17,7 @@ bool DynamicData::init(){
     //if beginner not exsit set beginner true
     
     setIsBegin(false);
+    setIsAtTop(false);
     m_max_count = UserDefault::getInstance()->getIntegerForKey("maxCount");
     //clean userdefault
     UserDefault::getInstance()->destroyInstance();

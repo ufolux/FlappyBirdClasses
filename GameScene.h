@@ -36,6 +36,7 @@ public:
     bool isPass();
     void alterCount();
     void preloadTextrue();
+    
     void update(float t);
 	GameScene();
 	~GameScene();
