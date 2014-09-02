@@ -1,8 +1,8 @@
 #pragma once
 
 #include "cocos2d.h"
-#include "DynamicData.h"
-#include "StaticData.h"
+#include "../data/DynamicData.h"
+#include "../data/StaticData.h"
 
 
 

@@ -2,7 +2,7 @@
 
 #include "cocos2d.h"
 #include "BasicLayer.h"
-#include "DynamicData.h"
+#include "../data/DynamicData.h"
 USING_NS_CC;
 
 class PannelLayer: public BasicLayer{

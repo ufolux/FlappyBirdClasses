@@ -3,7 +3,7 @@
 #include "cocos2d.h"
 #include "BasicLayer.h"
 #include "BirdLayer.h"
-#include "DynamicData.h"
+#include "../data/DynamicData.h"
 
 USING_NS_CC;
 
