@@ -1,4 +1,5 @@
 #include "PipeLayer.h"
+#include "GameScene.h"
 
 bool PipeLayer::init(){
     bool sRect = false;
@@ -114,18 +115,21 @@ void PipeLayer::scrollPipe(float t){
             pe_sp2->setPositionX(VISIBLE_SIZE.width+150);
             pe_sp3->setPositionX(VISIBLE_SIZE.width+DIV);
             pe_sp4->setPositionX(VISIBLE_SIZE.width+DIV);
+            
         }
         //set height
         if (!getIsPeSp3_4Display()) {
             PipeY pipeY = randomPipeY();
             pe_sp3->setPositionY(pipeY.down);//总长度
             pe_sp4->setPositionY(pipeY.up);
+            static_cast<GameScene*>(this->getParent())->setIsPassFlag(false);
         }
         
         if (!getIsPeSp1_2Display()) {
             PipeY pipeY = randomPipeY();
             pe_sp1->setPositionY(pipeY.down);//总长度
             pe_sp2->setPositionY(pipeY.up);
+            static_cast<GameScene*>(this->getParent())->setIsPassFlag(false);
         }
 
     }
@@ -137,7 +141,7 @@ void PipeLayer::scrollPipe(float t){
 PipeY PipeLayer::randomPipeY(){
     PipeY pipeY;
     
-    auto gap = 180;//空隙大小
+    auto gap = 200;//空隙大小
     srand(time(NULL));
     auto randomDownYRatio = ((rand() % 60) + 30) / 100.0 ;
     auto randomUpYRation = 1 - randomDownYRatio;

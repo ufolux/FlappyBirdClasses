@@ -26,7 +26,12 @@ public:
     void addHeight();
     void reset();
     void update(float t);
+  
     CREATE_FUNC(BirdLayer);
     
+
+private:
+    Vector<SpriteFrame*> spriteFrame;
+
     
 };

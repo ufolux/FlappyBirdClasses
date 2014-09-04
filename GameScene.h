@@ -42,6 +42,9 @@ public:
 	~GameScene();
     CREATE_FUNC(GameScene);
     
+    bool getIsPassFlag();
+    void setIsPassFlag(bool isPass);
+
 protected:
     BackgroundLayer* m_background_layer;
     FloorLayer* m_floor_layer;
@@ -53,6 +56,7 @@ protected:
     ReadyLayer* m_ready_layer;
     GameOverLayer* m_game_over_layer;
     
+
 
 };
 

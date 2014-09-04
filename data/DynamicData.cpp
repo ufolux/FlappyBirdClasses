@@ -42,6 +42,7 @@ void DynamicData::alterCount(int delta){
     this->setCount(count+delta);
     if (count>getCount()) {
         setMaxCount(count);
+        this->flush();
     }
     //don't need flush here
 }
